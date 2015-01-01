@@ -1,15 +1,13 @@
 Win14_15_HW3
 ============
-#Homework 1 - Heuristic Search
+#Homework 3 - Local Search and Machine Learning
 
-The PDF for the assignment can found in [docs/AI_HW1.pdf](docs/AI_HW1.pdf?raw=true)
-
-Library documentation can be found [here](ways/README.md)
+The PDF for the assignment can found in [docs/AI_HW3.pdf](docs/AI_HW3.pdf?raw=true)
 
 ##Directory Structure
 
-###[`/`](http://github.com/TechnionAI/Win14_15_HW1)
-Add your source files here, and insert calls for the functions in them inside [`main.py`](main.py). 
+###[`/`](http://github.com/TechnionAI/Win14_15_HW3)
+Add your source files here (see PDF).
 
 You can add directories for 3rd party libraries. Remember to declare `dir your_directory` in [`docs/dependencies.txt`](docs/dependencies.txt)
 
@@ -17,35 +15,19 @@ You can add directories for 3rd party libraries. Remember to declare `dir your_d
 
 [`__init__.py`](__init__.py) A hint for the interpreter - ignore this file
 
-[`main.py`](main.py) Minimal interface to the command line: `$ python main.py [args]`
+[`data.py`](data.py) Data loading functions.
 
-[`stats.py`](stats.py) Gather and print statistics: `$ python stats.py`
+[`utils.py`](utils.py) Utility functions.
 
-___
-###[`ways/`](ways/)
-Primary library. Basic usage: 
-```python
-from ways import load_map_from_csv
-roads = load_map_from_csv()
-````
-[`ways/README.md`](ways/README.md) Library documentation
+[`classifier.py`](classifier.py) Implementations of learning algorithms.
 
-[`ways/__init__.py`](ways/__init__.py) Defines the functions accessible using `import ways`
-
-[`ways/graph.py`](ways/graph.py) Code to load the map from the database
-
-[`ways/info.py`](ways/info.py) Constants
-
-[`ways/tools.py`](ways/tools.py) Arbitrary, possibly useful tools
-
-[`ways/draw.py`](ways/draw.py) Helper file for drawing paths using matplotlib
-
+[`abstract_search.py`](abstract_search.py) Classes you must extend in your implementation.
 ___
 
 ###[`docs/`](docs/)
 Documentation
 
-[`docs/AI_HW1.pdf`](docs/AI_HW1.pdf) Assignment file
+[`docs/AI_HW3.pdf`](docs/AI_HW3.pdf) Assignment file
 
 [`docs/dependencies.txt`](docs/dependencies.txt) Declarations of dependencies in 3rd party libraries. For example:
 
@@ -53,12 +35,15 @@ Documentation
 >
 
 ___
-###[`db/`](db/)
+###[`data/`](data/)
 Database. Do not change.
 
-[`db/israel.csv`](db/israel.csv) Roads description. primary database file
+[`data/training1.csv`](data/training1.csv) Training data for part 1.
 
-[`db/lights.csv`](db/israel.csv) List of locations of traffic lights
-___		
-###[`results/`](results/)
-Put your experiment results (text and images) here
+[`data/validation1.csv`](data/validation1.csv) evaluation data for part 1.
+
+[`data/test1.csv`](data/test1.csv) Test data for part 1.
+
+[`data/data2.csv`](data/data2.csv) Data for cross validation for part 2.
+
+
