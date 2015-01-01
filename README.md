@@ -7,7 +7,6 @@ The PDF for the assignment can found in [docs/AI_HW3.pdf](docs/AI_HW3.pdf?raw=tr
 ##Directory Structure
 
 ###[`/`](http://github.com/TechnionAI/Win14_15_HW3)
-Add your source files here (see PDF).
 
 You can add directories for 3rd party libraries. Remember to declare `dir your_directory` in [`docs/dependencies.txt`](docs/dependencies.txt)
 
@@ -46,4 +45,8 @@ Database. Do not change.
 
 [`data/data2.csv`](data/data2.csv) Data for cross validation for part 2.
 
+___
 
+###[`search/`](search/)
+
+Add your files here (see PDF).
