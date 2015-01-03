@@ -25,7 +25,7 @@ class SearchState(object):
         return [(state, op) for (state, op) in 
         zip([operator(self) for operator in self.__legal_operators], self.__legal_operators)]
 
-class SearchProblem(object):
+class LocalSearch(object):
     def __init__(self, starting_state):
         '''Initialize a search problem with this starting_state.
         operators is is the list of operators used during the local search.
