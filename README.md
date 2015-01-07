@@ -2,7 +2,7 @@ Win14_15_HW3
 ============
 #Homework 3 - Local Search and Machine Learning
 
-The PDF for the assignment can found in [docs/AI_HW3.pdf](docs/AI_HW3.pdf?raw=true)
+The PDF for the assignment can found in [docs/AI_HW3.pdf](docs/hw3.pdf?raw=true)
 
 ##Directory Structure
 
