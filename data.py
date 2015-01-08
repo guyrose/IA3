@@ -24,19 +24,19 @@ def load_hw3_data_1():
     with open('./data/training1.csv', 'r') as fptr:
         for line in fptr.readlines():
             example= [float(value) for value in line.split(',')[:-1]]
-            label= int(line.split(',')[-1]
+            label= int(line.split(',')[-1])
             training_data.append(example)
             training_labels.append(label)
     with open('./data/validation1.csv', 'r') as fptr:
         for line in fptr.readlines():
             example= [float(value) for value in line.split(',')[:-1]]
-            label= int(line.split(',')[-1]
+            label= int(line.split(',')[-1])
             validation_data.append(example)
             validation_labels.append(label)
     with open('./data/test1.csv', 'r') as fptr:
         for line in fptr.readlines():
             example= [float(value) for value in line.split(',')[:-1]]
-            label= int(line.split(',')[-1]
+            label= int(line.split(',')[-1])
             test_data.append(example)
             test_labels.append(label)
     return [(training_data, training_labels), (validation_data, validation_labels), (test_data, test_labels)]
@@ -49,10 +49,10 @@ def load_hw3_data_2():
     data= []
     labels= []
     
-    with open('./data2.csv', 'w') as fptr:
+    with open('./data/data2.csv', 'r') as fptr:
         for line in fptr.readlines():
             example= [float(value) for value in line.split(',')[:-1]]
-            label= int(line.split(',')[-1]
+            label= int(line.split(',')[-1])
             data.append(example)
             labels.append(label)
     return (data, labels)
