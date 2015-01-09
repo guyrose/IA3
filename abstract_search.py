@@ -10,7 +10,7 @@ class SearchState(object):
         '''Initialize search state.
         You should add some state to classes that inherit from this.
         '''
-        self.__legal_operators= legal_operators
+        self._legal_operators= legal_operators
     
     def evaluate(self, evaluation_set, evaluation_set_labels, *args, **kwargs):
         '''Evaluate state based on a labelled evaluation set.
@@ -23,14 +23,14 @@ class SearchState(object):
         This implementation requires your operators to receive a state and return a state (including operators).
         '''
         return [(state, op) for (state, op) in 
-        zip([operator(self) for operator in self.__legal_operators], self.__legal_operators)]
+        zip([operator(self) for operator in self._legal_operators], self._legal_operators)]
 
 class LocalSearch(object):
     def __init__(self, starting_state):
         '''Initialize a search problem with this starting_state.
         operators is is the list of operators used during the local search.
         '''
-        self.__current_state= starting_state
+        self._current_state= starting_state
         self.operators= []
     
     def search(self, evaluation_set, evaluation_set_labels, *args, **kwargs): 
