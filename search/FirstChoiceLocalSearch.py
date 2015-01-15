@@ -24,6 +24,7 @@ class FirstChoiceLocalSearch(LocalSearch):
                     print "found"
                     improved = True
                     break
+
             if not improved:
                 return current, self.operators
         return current, self.operators

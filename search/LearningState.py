@@ -49,6 +49,7 @@ def examples_operator_create(to_remove):
             del new_set[x]
         return new_set
 
+
     def examples_operator_label(sample_label, training=True):
         if not training:
             return sample_label
