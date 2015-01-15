@@ -32,7 +32,7 @@ def feature_operator_create(i):
         return new_set
 
     def feature_operator_label(sample_label, training=True):
-        return deepcopy(sample_label)
+        return sample_label
 
     return feature_operator_set, feature_operator_label
 
@@ -41,9 +41,9 @@ def examples_operator_create(to_remove):
     def examples_operator_set(sample_set, training=True):
         if not training:
             return sample_set
-        new_set = deepcopy(sample_set)
         if len(sample_set) < 5:
-            return new_set
+            return sample_set
+        new_set = deepcopy(sample_set)
         to_remove.sort(reverse=True)
         for x in to_remove:
             del new_set[x]
@@ -53,9 +53,9 @@ def examples_operator_create(to_remove):
     def examples_operator_label(sample_label, training=True):
         if not training:
             return sample_label
-        new_label = deepcopy(sample_label)
         if len(sample_label) < 5:
-            return new_label
+            return sample_label
+        new_label = deepcopy(sample_label)
         to_remove.sort(reverse=True)
         for x in to_remove:
             del new_label[x]

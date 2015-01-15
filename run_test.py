@@ -18,9 +18,9 @@ test_data, test_labels = data_lst[2]
 start_state = LearnState(get_legal_operators(training_data), training_data, training_labels)
 local_search = FirstChoiceLocalSearch(start_state)
 knn = classifier.KNearestNeighbours(3)
-
 optimal_state, ops = local_search.search(validation_data, validation_labels, knn, [])
 knn.train(optimal_state.training_set, optimal_state.training_set_labels)
+
 test_set = test_data
 test_set_labels = test_labels
 for op in ops:

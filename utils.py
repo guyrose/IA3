@@ -47,7 +47,7 @@ def l2_distance(example1, example2):
     Returns a float representing the distance.
     '''
     if len(example1)!=len(example2):
-        raise ValueError('cannot calculate distance on vectors of different dimensions')
+        raise ValueError('cannot calculate distance on vectors of different dimensions: ' + str(len(example1)), str(len(example2)))
     return sqrt(sum([(v1-v2)**2 for (v1,v2) in zip(example1,example2)]))
     
 SIGNIFICANCE_THRESHOLD= 0.05
