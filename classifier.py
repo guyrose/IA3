@@ -48,7 +48,6 @@ class KNearestNeighbours(Classifier):
         
     def classify(self, test_set):
         test_labels= []
-        print len(test_set[0])
         for example in test_set:
             #calculate euclidian distances
             distances= [utils.l2_distance(example, training_example) for training_example in self.examples]
