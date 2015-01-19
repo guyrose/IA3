@@ -8,7 +8,6 @@ class FirstChoiceLocalSearch(LocalSearch):
     def search(self, evaluation_set, evaluation_set_labels, classifier, *args, **kwargs):
         current = self._current_state
         current_evaluation = current.evaluate(evaluation_set, evaluation_set_labels, classifier)
-        print "start", str(current_evaluation)
         while True:
             next_states = current.get_next_states()
             shuffle(next_states)
@@ -23,7 +22,6 @@ class FirstChoiceLocalSearch(LocalSearch):
                     evaluation_set = new_evaluation
                     evaluation_set_labels = new_evaluation_labels
                     self.operators.append(ops)
-                    print "found", str(current_evaluation)
                     improved = True
                     break
             if not improved:

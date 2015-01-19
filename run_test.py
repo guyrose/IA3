@@ -8,7 +8,8 @@ from search.FirstChoiceLocalSearch import FirstChoiceLocalSearch
 import numpy as np
 
 #Load all the data
-data_lst = data.load_hw3_data_1()
+data_lst = data.load_hw3_data_2()
+quit()
 training_data, training_labels = data_lst[0]
 validation_data, validation_labels = data_lst[1]
 test_data, test_labels = data_lst[2]
