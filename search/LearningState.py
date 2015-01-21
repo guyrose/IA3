@@ -6,9 +6,9 @@ from copy import deepcopy
 from random import shuffle
 
 
-class LearnState(SearchState):
+class LearningState(SearchState):
     def __init__(self, legal_operators, training_set, training_set_labels):
-        super(LearnState, self).__init__(legal_operators)
+        super(LearningState, self).__init__(legal_operators)
         self.training_set = training_set
         self.training_set_labels = training_set_labels
 
@@ -21,7 +21,7 @@ class LearnState(SearchState):
         This implementation requires your operators to receive a state and return a state (including operators).
         '''
         return [(state, op) for (state, op) in
-        zip([LearnState(get_legal_operators(operator[0](self.training_set)), operator[0](self.training_set), operator[1](self.training_set_labels)) for operator in self._legal_operators], self._legal_operators)]
+        zip([LearningState(get_legal_operators(operator[0](self.training_set)), operator[0](self.training_set), operator[1](self.training_set_labels)) for operator in self._legal_operators], self._legal_operators)]
 
 
 def feature_operator_create(i):

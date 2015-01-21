@@ -21,7 +21,8 @@ def entropy(labels):
     if len(nonzero_freqs) <= 1:
         return 0.0 #edge case
     return sum([-log(f, 2)*f for f in nonzero_freqs])
-    
+
+
 def information_gain(old_labels, feature_values):
     '''Calculate information gain by splitting old_labels according to feature_values
     Note that this works for nominal features as well as binary (but it tends to prefer features with many values. there is a correction known as information gain ratio, but it is beyond the scope of the course)

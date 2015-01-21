@@ -3,7 +3,7 @@ __author__ = 'Guy'
 
 import data
 import classifier
-from search.LearningState import get_legal_operators, LearnState
+from search.LearningState import get_legal_operators, LearningState
 from search.FirstChoiceLocalSearch import FirstChoiceLocalSearch
 import numpy as np
 
@@ -16,7 +16,7 @@ test_data, test_labels = data_lst[2]
 
 
 #Initialize objects
-start_state = LearnState(get_legal_operators(training_data), training_data, training_labels)
+start_state = LearningState(get_legal_operators(training_data), training_data, training_labels)
 local_search = FirstChoiceLocalSearch(start_state)
 knn = classifier.KNearestNeighbours(3)
 optimal_state, ops = local_search.search(validation_data, validation_labels, knn, [])
