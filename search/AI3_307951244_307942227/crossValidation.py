@@ -3,9 +3,10 @@ __author__ = 'Guy'
 import data
 import classifier
 import utils
-from search.LearningState import LearningState, get_legal_operators
-from search.FirstChoiceLocalSearch import FirstChoiceLocalSearch
-from search.ImprovedFirstChoiceLocalSearch import ImprovedFirstChoiceLocalSearch
+from LearningState import get_legal_operators, LearningState
+from BasicSearch import FirstChoiceLocalSearch
+from ImprovedSearch import ImprovedFirstChoiceLocalSearch
+import os
 
 class KFoldCrossValidation:
     def __init__(self, classifier, data_set, data_labels):
@@ -51,8 +52,6 @@ class KFoldCrossValidation:
             print "done", i + 1
         return utils.student_paired_t_test(before_search_accuracy, after_search_accuracy), before_search_accuracy, after_search_accuracy
 
-
-
 def checkAccuracy(classifier_labels, real_labels):
      return float(len([(c , e) for (c , e) in zip(classifier_labels, real_labels) if c == e])) / len(real_labels)
 
@@ -63,41 +62,45 @@ def _merge_list(lists):
         ls = ls + l
     return ls
 
-data_lst = data.load_hw3_data_2()
+
+if __name__ == '__main__':
+    os.chdir("../../")
+    data_lst = data.load_hw3_data_2()
+
+    print "KNN 3"
+    kfcv = KFoldCrossValidation(classifier.KNearestNeighbours(3), data_lst[0], data_lst[1])
+    paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
+    print before, float(sum(before)) / len(before)
+    print after, float(sum(after)) / len(after)
+    print paired_t_test
+
+    print "KNN 1"
+    kfcv = KFoldCrossValidation(classifier.KNearestNeighbours(1), data_lst[0], data_lst[1])
+    paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
+    print before, float(sum(before)) / len(before)
+    print after, float(sum(after)) / len(after)
+    print paired_t_test
+
+    print "DecisionTree 1"
+    kfcv = KFoldCrossValidation(classifier.DecisionTree(1), data_lst[0], data_lst[1])
+    paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
+    print before, float(sum(before)) / len(before)
+    print after, float(sum(after)) / len(after)
+    print paired_t_test
+
+    print "DecisionTree 5"
+    kfcv = KFoldCrossValidation(classifier.DecisionTree(5), data_lst[0], data_lst[1])
+    paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
+    print before, float(sum(before)) / len(before)
+    print after, float(sum(after)) / len(after)
+    print paired_t_test
+
+    print "Bonus"
+    kfcv = KFoldCrossValidation(classifier.KNearestNeighbours(3), data_lst[0], data_lst[1])
+    paired_t_test, before, after = kfcv.crossValidate(ImprovedFirstChoiceLocalSearch)
+    print before, float(sum(before)) / len(before)
+    print after, float(sum(after)) / len(after)
+    print paired_t_test
 
 
-print "KNN 3"
-kfcv = KFoldCrossValidation(classifier.KNearestNeighbours(3), data_lst[0], data_lst[1])
-paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
-print before, float(sum(before)) / len(before)
-print after, float(sum(after)) / len(after)
-print paired_t_test
-
-print "KNN 1"
-kfcv = KFoldCrossValidation(classifier.KNearestNeighbours(1), data_lst[0], data_lst[1])
-paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
-print before, float(sum(before)) / len(before)
-print after, float(sum(after)) / len(after)
-print paired_t_test
-
-print "DecisionTree 1"
-kfcv = KFoldCrossValidation(classifier.DecisionTree(1), data_lst[0], data_lst[1])
-paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
-print before, float(sum(before)) / len(before)
-print after, float(sum(after)) / len(after)
-print paired_t_test
-
-print "DecisionTree 5"
-kfcv = KFoldCrossValidation(classifier.DecisionTree(5), data_lst[0], data_lst[1])
-paired_t_test, before, after = kfcv.crossValidate(FirstChoiceLocalSearch)
-print before, float(sum(before)) / len(before)
-print after, float(sum(after)) / len(after)
-print paired_t_test
-
-print "Bonus"
-kfcv = KFoldCrossValidation(classifier.KNearestNeighbours(3), data_lst[0], data_lst[1])
-paired_t_test, before, after = kfcv.crossValidate(ImprovedFirstChoiceLocalSearch)
-print before, float(sum(before)) / len(before)
-print after, float(sum(after)) / len(after)
-print paired_t_test
 

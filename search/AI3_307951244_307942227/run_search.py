@@ -3,9 +3,8 @@ __author__ = 'Guy'
 
 import data
 import classifier
-from search.LearningState import get_legal_operators, LearningState
-from search.FirstChoiceLocalSearch import FirstChoiceLocalSearch
-import numpy as np
+from LearningState import get_legal_operators, LearningState
+from BasicSearch import FirstChoiceLocalSearch
 
 #Load all the data
 data_lst = data.load_hw3_data_2()

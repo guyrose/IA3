@@ -1,8 +1,7 @@
 __author__ = 'Guy'
-from abstract_search import LocalSearch
-from random import shuffle, choice
-from FirstChoiceLocalSearch import FirstChoiceLocalSearch
-from LearningState import get_legal_operators, LearningState
+from random import shuffle
+
+from BasicSearch import FirstChoiceLocalSearch
 
 
 class ImprovedFirstChoiceLocalSearch(FirstChoiceLocalSearch):
